@@ -1,0 +1,10 @@
+@extends('layouts.app')
+@section('title', 'Panel del empleado')
+@section('content')
+<div class="card"><h1>Panel de empleado</h1><p>{{ auth()->user()->name }} — <span class="badge">Empleado</span></p></div>
+<div class="grid">
+    <div class="card"><h3>📥 Órdenes de reparación</h3><p>Recibir y actualizar equipos. Próximamente.</p></div>
+    <div class="card"><h3>📦 Inventario</h3><p>Refacciones y accesorios. Próximamente.</p></div>
+    <div class="card"><h3>💵 Ventas</h3><p>Registro de ventas en mostrador. Próximamente.</p></div>
+</div>
+@endsection

@@ -1,0 +1,9 @@
+@extends('layouts.app')
+@section('title', 'Quiénes somos')
+@section('content')
+<div class="card">
+    <h1>Quiénes somos</h1>
+    <p>CazFixt es un taller especializado en la reparación de dispositivos móviles. Contamos con técnicos certificados, refacciones de calidad y un servicio transparente: te explicamos el diagnóstico y el costo antes de reparar.</p>
+    <p>Además de reparaciones, ofrecemos venta de accesorios y refacciones en línea.</p>
+</div>
+@endsection

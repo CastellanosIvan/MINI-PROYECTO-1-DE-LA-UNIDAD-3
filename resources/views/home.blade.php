@@ -1,0 +1,116 @@
+@extends('layouts.app')
+@section('title', 'Inicio')
+@section('content')
+
+<style>
+    /* Solo forzamos que esta página abarque el 100% de los bordes. */
+    /* El modo oscuro ya viene desde layouts/app.blade.php */
+    main {
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+</style>
+
+
+<!-- ======================================================= -->
+<!-- 1. SECCIÓN PRINCIPAL (HERO) - TEXTO A LA DERECHA        -->
+<!-- ======================================================= -->
+<div style="
+    background: linear-gradient(to left, rgba(0,0,0,0.95) 10%, rgba(0,0,0,0.2) 80%), url('{{ asset('img/hero-reparacion.jpg') }}') center center/cover no-repeat;
+    min-height: 90vh; 
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center; 
+    padding: 0 10%;
+    border-bottom: 1px solid #222;
+">
+    <!-- Caja que contiene el texto, alineada a la derecha -->
+    <div style="max-width: 600px; text-align: right;">
+        <h1 style="font-size: 4.5rem; color: #fff; margin-top: 0; margin-bottom: 15px; line-height: 1.1;">#1 Reparando<br>Equipos</h1>
+        <p style="font-size: 1.3rem; color: #ccc; margin-bottom: 40px; margin-left: auto;">
+            Diagnóstico rápido, refacciones de calidad y garantía en cada reparación. Devolvemos tu tranquilidad.
+        </p>
+
+        <!-- Contenedor de botones alineado a la derecha -->
+        <div style="display: flex; gap: 15px; justify-content: flex-end;">
+            @guest
+                <a class="btn" style="background: white; color: black; font-weight: bold; padding: 14px 28px; font-size: 1.1rem; border-radius: 50px;" href="{{ route('register') }}">Crear cuenta</a>
+                <a class="btn" style="background: transparent; border: 2px solid white; color: white; font-weight: bold; padding: 14px 28px; font-size: 1.1rem; border-radius: 50px;" href="{{ route('login') }}">Iniciar sesión</a>
+            @else
+                <a class="btn" style="background: white; color: black; font-weight: bold; padding: 14px 28px; font-size: 1.1rem; border-radius: 50px;" href="{{ route('dashboard') }}">Ir a mi panel</a>
+            @endguest
+        </div>
+    </div>
+</div>
+
+<!-- ======================================================= -->
+<!-- 2. SECCIÓN DE COTIZACIÓN Y VIDEO DIRECTO                -->
+<!-- ======================================================= -->
+<div style="
+    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.95)), url('{{ asset('img/banner-reparacion.jpg') }}') center center/cover fixed;
+    padding: 100px 5%;
+    text-align: center;
+    border-bottom: 1px solid #222;
+">
+    <h2 style="font-size: 2.8rem; color: #fff; margin-top: 0; margin-bottom: 30px;">Cuenta con nosotros para cualquier reparación</h2>
+    
+    <!-- BOTÓN DE WHATSAPP -->
+    <!-- ¡Recuerda cambiar el 529140000000 por tu número! -->
+    <a href="https://wa.me/529140000000?text=Hola%20CazFixt,%20me%20gustar%C3%ADa%20cotizar%20una%20reparaci%C3%B3n." 
+       target="_blank" 
+       style="display: inline-block; background: #25D366; color: white; font-size: 1.2rem; padding: 16px 40px; border-radius: 50px; font-weight: bold; margin-bottom: 60px; text-decoration: none; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);">
+       Cotiza aquí
+    </a>
+
+    <!-- VIDEO LOCAL (CazFixt Intro) -->
+    <div style="max-width: 900px; margin: 0 auto; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.8); border: 1px solid #333;">
+        <div style="position: relative; width: 100%; height: auto;">
+            <!-- Carga tu video desde la carpeta public/videos/intro.mp4 -->
+            <video width="100%" height="auto" controls poster="{{ asset('img/banner-reparacion.jpg') }}" style="display: block;">
+                <source src="{{ asset('videos/intro.mp4') }}" type="video/mp4">
+                Tu navegador no soporta la etiqueta de video.
+            </video>
+        </div>
+    </div>
+</div>
+
+<!-- ======================================================= -->
+<!-- 3. TARJETAS DE SERVICIOS                                -->
+<!-- ======================================================= -->
+<div style="padding: 80px 10%; background-color: #000;">
+    <div class="grid" style="margin-bottom: 80px;">
+        <div class="card" style="text-align: center; padding: 40px 20px;">
+            <h3 style="font-size: 1.8rem; margin-top: 0;">🔧 Reparación</h3>
+            <p>Pantallas, baterías, bocinas, cámaras y software.</p>
+        </div>
+        <div class="card" style="text-align: center; padding: 40px 20px;">
+            <h3 style="font-size: 1.8rem; margin-top: 0;">🛡️ Garantía</h3>
+            <p>Todas nuestras reparaciones incluyen póliza de garantía.</p>
+        </div>
+        <div class="card" style="text-align: center; padding: 40px 20px;">
+            <h3 style="font-size: 1.8rem; margin-top: 0;">🎧 Accesorios</h3>
+            <p>Fundas, micas, cargadores y audífonos de alta calidad.</p>
+        </div>
+    </div>
+
+    <!-- ======================================================= -->
+    <!-- 4. ESTADÍSTICAS                                         -->
+    <!-- ======================================================= -->
+    <div class="grid" style="text-align: center; border-top: 1px solid #222; padding-top: 60px;">
+        <div>
+            <h2 style="font-size: 3.5rem; color: #fff; margin: 0; font-weight: normal;">2024</h2>
+            <p style="color: #666; font-weight: bold; margin-top: 10px; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px;">Año de<br>Apertura</p>
+        </div>
+        <div>
+            <h2 style="font-size: 3.5rem; color: #fff; margin: 0; font-weight: normal;">10K+</h2>
+            <p style="color: #666; font-weight: bold; margin-top: 10px; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px;">Órdenes de<br>Servicio</p>
+        </div>
+        <div>
+            <h2 style="font-size: 3.5rem; color: #fff; margin: 0; font-weight: normal;">Redes</h2>
+            <p style="color: #666; font-weight: bold; margin-top: 10px; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px;">Síguenos<br>En línea</p>
+        </div>
+    </div>
+</div>
+
+@endsection 
